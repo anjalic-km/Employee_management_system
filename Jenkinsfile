@@ -3,17 +3,10 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                url: 'https://github.com/anjalic-km/Employee_management_system.git'
-            }
-        }
-
         stage('Build Backend') {
             steps {
                 dir('ems-backend') {
-                    bat 'mvn clean install'
+                    sh 'mvn clean install'
                 }
             }
         }
@@ -21,7 +14,7 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('ems-frontend') {
-                    bat 'npm install'
+                    sh 'npm install'
                 }
             }
         }
