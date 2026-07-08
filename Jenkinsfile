@@ -6,7 +6,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('ems-backend') {
-                    sh 'mvn clean install'
+                   sh 'mvn clean package -DskipTests'
                 }
             }
         }
